@@ -22,7 +22,8 @@ RUN mkdir -p /python_duty_bot \
     && poetry config virtualenvs.create false \
     && poetry install --no-cache --no-interaction --no-ansi \
     && rm -rf poetry.lock pyproject.toml \
-    && chmod -R a-w /python_duty_bot/*
+    && chmod -R a-w /python_duty_bot/* \
+    && mkdir /python_duty_bot/data && chown -R app:app /python_duty_bot/data
 
 WORKDIR /python_duty_bot
 USER app
